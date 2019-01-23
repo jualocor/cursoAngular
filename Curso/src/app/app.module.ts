@@ -8,13 +8,19 @@ import {FrutaComponent} from './fruta/fruta.component';
 import {EmpleadoComponent} from './empleado/empleado.component';
 import {ContactoComponent} from './contacto/contacto.component';
 import {HomeComponent} from './home/home.component';
+import {CochesComponent} from './coches/coches.component';
+
+import {ConversorPipe} from './pipes/conversor.piper';
+
 @NgModule({
   declarations: [
     AppComponent,
     FrutaComponent,
     EmpleadoComponent,
     HomeComponent,
-    ContactoComponent
+    ContactoComponent,
+    ConversorPipe,
+    CochesComponent
   ],
   imports: [
     BrowserModule,
