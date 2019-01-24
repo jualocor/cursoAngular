@@ -9,8 +9,9 @@ import {EmpleadoComponent} from './empleado/empleado.component';
 import {ContactoComponent} from './contacto/contacto.component';
 import {HomeComponent} from './home/home.component';
 import {CochesComponent} from './coches/coches.component';
-
+import {HttpClientModule} from '@angular/common/http';
 import {ConversorPipe} from './pipes/conversor.piper';
+import {PlantillasComponent} from './plantillas/plantillas.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,15 @@ import {ConversorPipe} from './pipes/conversor.piper';
     HomeComponent,
     ContactoComponent,
     ConversorPipe,
-    CochesComponent
+    CochesComponent,
+    PlantillasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient,Response,Headers} from '@angular/common/http';
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class PeticionesServices{
     public url ;
-    constructor(private _http){
+    constructor(public http : HttpClient){
         this.url = "https://jsonplaceholder.typicode.com/posts";   
     }
     
@@ -13,8 +13,7 @@ export class PeticionesServices{
         return "Hola mundo";
     }
     
-    getArticulos(){
-        return this._http.get(this.url)
-                          .pipe(map(res => res.json()));
+    getArticulos():Observable<any>{
+      return this.http.get(this.url);
     }
 }

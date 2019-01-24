@@ -10,7 +10,7 @@ import {PeticionesServices} from '../services/peticiones.services';
 export class CochesComponent{
     public coche:Coche;
     public coches:Array<Coche>;
-    
+    public articulos;
     constructor(
         private _peticionesService: PeticionesServices
     ){
@@ -22,7 +22,21 @@ export class CochesComponent{
         
     }
     ngOnInit(){
-        console.log(this._peticionesService.getPrueba());
+        console.log(this._peticionesService.getArticulos().subscribe(
+          result =>{
+            if(result.code!=200){
+              this.articulos = result;
+              console.log(this.articulos);
+              console.log(result);
+            }
+            else{
+              this.coches = result.data;
+            }
+          },
+          error =>{
+            console.log(<any>error);
+          }
+        ));
     }
     onSubmit(){
        this.coches.push(this.coche);
